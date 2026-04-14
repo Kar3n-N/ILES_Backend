@@ -45,3 +45,42 @@ class PlacementSerializer(serializers.ModelSerializer):
             'supervisor_full_name',
             'logbook_count',
         ]
+
+        def get_student_full_name(self,obj):
+            if obj.student:
+                return f"{obj.student.first_name} {obj.supervisor.last_name}".strip()
+            return None
+
+
+        def get_logbook_count(self,obj):
+            """
+            Count how many logbook entries exist for this placement.
+            The related_name='Weekly_logs' was set in the Logbook model.
+            """
+            return obj.Weekly_logs.count()
+
+
+
+class PlacementCreateSerializer(serializers.ModelSerializer):
+    """
+    Used by admins when creating a new placement.
+    Validates that student and supervisor have the correct roles.
+    """
+
+    class Meta:
+        model = InternshipPlacement
+        fields = [
+            'student',
+            'company_name',
+            'start_date',
+            'end_date',
+            'supervisor',
+        ]
+
+    def Validate_student(self,value):
+        """Ensure the assigned user is actually a student."""
+        if value.role !== 'student':
+            raise serializers.ValidationError(
+                f"User '{value.username}' is not a student (role: {value.role})."
+            )
+        return value 
