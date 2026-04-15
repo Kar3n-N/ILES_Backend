@@ -49,3 +49,47 @@ class LogbookSerializer(serializers.ModelSerializer):
 
         def get_student_fullname(self, obj):
             return f"{obj.student.first_name} {obj.student.last_name}".strip()
+
+
+class LogbookCreateSerializer(serializers.ModelSerializer):
+    """
+    Serializer for creating logbook entries (POST)
+    """
+
+    class Meta:
+        model = Logbook
+        fields = ["week_number", "start_date", "end_date", "activities", "placement"]
+
+    def validate_week_number(self, value):
+        if value < 1 or value > 52:
+            raise serializers.ValidationError("Week number must be between 1 and 52")
+        return value
+
+    def validate(self, data):
+        # Ensures the dates are in correct order
+        if data["start_date"] and data["end_date"]:
+            if data["start_date"] >= data["end_date"]:
+                raise serializers.ValidationError(
+                    {"end_date": "End date must be after start date"}
+                )
+
+        # prevent duplicate week submissions for the same placement
+        # We access the request via self.context to get the user's current logbook entries
+        request = self.context["request"]
+        if request and request.user:
+            existing_logbook = Logbook.objects.filter(
+                student=request.user,
+                week_number=data["week_number"],
+                placement=data["placement"],
+            )
+
+            if self.instance:
+                existing_logbook = existing_logbook.exclude(pk=self.instance.pk)
+            if existing_logbook.exists():
+                raise serializers.ValidationError(
+                    {
+                        "week_number": "You already have a logbook entry for this week on this placement"
+                    }
+                )
+
+        return data
