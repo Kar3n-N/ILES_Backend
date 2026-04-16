@@ -26,3 +26,38 @@ class PlacementViewset(viewsets.ModelViewSet):
         if self.action in ['create','update','partial_update']:
             return PLacementsCreateSerializer
         return PlacementSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.role = 'internship_admin':
+            return InternshipPlacement.objects.all().select_related(
+                'student','supervisor'
+            ).prefetch_related('Weekly_logs')
+
+        elif user.role in ['workplace_supervisor','academic_supervisor']:
+
+            return InternshipPlacement.objects.filter(
+                supervisor=user
+            ).selected_related('student','supervisor').prefetch_related('Weekly_logs')
+
+
+        elif user.role = 'student':
+
+            return InternshipPlacement.objects.filter(
+                student=user
+            ).select_related('supervisor').prefetch_related('Weekly_logs')
+
+        return InternshipPlacement.objects.none()
+
+
+    def create(self,request,*args, **kwargs):
+        """Only admins can create placements."""
+        if request.user.role != 'internship_admin':
+            return Response(
+                {"error":"Only administrators can create placements."},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        return super().create(request,*args,**kwargs)
+
+        
