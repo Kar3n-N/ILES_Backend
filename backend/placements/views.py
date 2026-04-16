@@ -60,4 +60,23 @@ class PlacementViewset(viewsets.ModelViewSet):
             )
         return super().create(request,*args,**kwargs)
 
-        
+    def update(self,request,*args,**kwargs):
+        """Only admins can update placements."""
+        if request.user.role != 'internship_admin':
+            return Response(
+                {"error": "Only administrators can update placements."},
+                status=status.HTTP_403_FORBIDDEN
+            )    
+        return super().update(request,*args,**kwargs)
+
+    def destroy(self,request,*args,**kwargs):
+        """
+        Only admins can delete placements.
+        Warn: deleting a placement cascades to logbooks and evaluations!
+        """
+        if request.user.role != 'internship_admin':
+            return Response(
+                {"error": "Only administrators can delete placements."},
+            )
+        placement = self.get_object()
+        logbook_count = placement.Weekly_logs.count()
