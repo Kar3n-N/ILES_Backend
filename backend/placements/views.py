@@ -77,6 +77,7 @@ class PlacementViewset(viewsets.ModelViewSet):
         if request.user.role != 'internship_admin':
             return Response(
                 {"error": "Only administrators can delete placements."},
+                status=status.HTTP_403_FORBIDDEN
             )
         placement = self.get_object()
         logbook_count = placement.Weekly_logs.count()
@@ -89,6 +90,7 @@ class PlacementViewset(viewsets.ModelViewSet):
                     "error": f"Cannot delete placement with {logbook_count} logbook entries.Archive it instead."
                 },
                 status=status.HTTP_400_BAD_REQUEST
+            )
 
 
             super().destroy(request,*args,**kwargs)
