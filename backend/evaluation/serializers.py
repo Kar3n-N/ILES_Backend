@@ -18,6 +18,7 @@ class EvaluationCriteriaSerializer(serializers.ModelSerializer):
         return value
 
 
+# Evaluation Serializer
 class EvaluationSerializer(serializers.ModelSerializer):
     """
     Fill serializer for reading evalution data.
