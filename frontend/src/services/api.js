@@ -1,110 +1,141 @@
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BACKEND_URL = process.env.REACT_APP_API_BASE_URL;
 
-function getAuthToken() {
-  return localStorage.getItem("iles_auth_token");
+function getHeaders() {
+  const token = localStorage.getItem("access_token");
+  return {
+    "Content-Type": "application/json",
+    ...(token && { Authorization: `Bearer ${token}` }),
+  };
 }
 
-async function apiFetch(path, options = {}) {
-  const token = getAuthToken();
-
-  const defaultHeaders = {
-    "Content-Type": "application/json",
-  };
-
-  if (token) {
-    defaultHeaders["Authorization"] = `Bearer ${token}`;
-  }
-
-  const config = {
+// --- CORE REQUEST WRAPPER ----------
+async function request(endpoint, options = {}) {
+  const response = await fetch(`${BACKEND_URL}${endpoint}`, {
+    headers: getHeaders(),
     ...options,
-    headers: {
-      ...defaultHeaders,
-      ...options.headers,
-    },
-  };
+  });
 
-  const response = await fetch(`${BASE_URL}${path}`, config);
-
-  if (!response.ok) {
-    let errorMessage;
-
-    try {
-      const errorBody = await response.json();
-      if (errorBody.detail) {
-        errorMessage = errorBody.detail;
-      } else {
-        errorMessage = Object.values(errorBody).flat().join(" ");
-      }
-    } catch {
-      errorMessage = `Request failed: ${response.status} ${response.statusText}`;
-    }
-
-    const error = new Error(errorMessage);
-    error.status = response.status;
-    throw error;
-  }
-
-  if (response.status === 204) {
+  //Token expired - clear storage and redirect to login
+  if (response.status === 401) {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    window.location.href = "/login";
     return null;
   }
 
-  return response.json();
+  // Try to parse JSON
+  let data;
+  try {
+    data = await response.json();
+  } catch {
+    data = {};
+  }
+
+  if (!response.ok) {
+    // Build a human-readable error message from the DRF error format
+    const message =
+      data.detail ||
+      data.error ||
+      Object.entries(data)
+        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : v}`)
+        .join(" | ") ||
+      `Request failed (${response.status})`;
+    throw new Error(message);
+  }
+
+  return data;
 }
 
+// ---- AUTH ENDPOINTS-----
 export async function loginUser({ username, password }) {
-  return apiFetch("/auth/login/", {
+  const data = await request("/auth/login/", {
     method: "POST",
     body: JSON.stringify({ username, password }),
   });
+
+  //Stores tokens returned by Django
+  localStorage.setItem("access_token", data.access);
+  localStorage.setItem("refresh_token", data.refresh);
+
+  return { user: data.user, token: data.access };
 }
 
 export async function logoutUser() {
-  return apiFetch("/auth/logout/", { method: "POST" });
+  localStorage.removeItem("access_token");
+  localStorage.removeItem("refresh_token");
 }
 
-export async function getUserProfile() {
-  return apiFetch("/auth/profile/");
+export async function getProfile() {
+  return request("/auth/profile/");
 }
 
-export async function getLogs() {
-  return apiFetch("/logbook/");
+export async function getLogbooks() {
+  return request("/logbook/");
 }
 
-export async function getLogById(logId) {
-  return apiFetch(`/logbook/${logId}/`);
+export async function getLogbook(id) {
+  return request(`/logbook/${id}/`);
 }
 
-export async function createLog(logData) {
-  return apiFetch("/logbook/", {
+export async function createLogbook(data) {
+  return request("/logbook/", {
     method: "POST",
-    body: JSON.stringify(logData),
+    body: JSON.stringify(data),
   });
 }
 
-export async function updateLog(logId, logData) {
-  return apiFetch(`/logbook/${logId}/`, {
+export async function updateLogbook(logId, logData) {
+  return request(`/logbook/${logId}/`, {
     method: "PATCH",
     body: JSON.stringify(logData),
   });
 }
 
-export async function submitLog(logId) {
-  return apiFetch(`/logbook/${logId}/submit/`, {
+export function submitLogbook(logId) {
+  return request(`/logbook/${logId}/submit/`, {
     method: "POST",
+    body: JSON.stringify({}),
   });
 }
 
-export async function getEvaluationCriteria() {
-  return apiFetch("/evaluation/criteria/");
+// -----PLACEMENT ENDPOINTS---------
+export function getPlacements() {
+  return request("/placements/");
 }
 
-export async function submitEvaluation(placementId, evaluationData) {
-  return apiFetch(`/evaluation/`, {
+export function getPlacement(id) {
+  return request(`/placements/${id}/`);
+}
+
+//-------EVALUTATION ENDPOINTS ----------
+
+export function getEvaluationCriteria() {
+  return request("/evaluation/criteria/");
+}
+
+export function getEvaluations() {
+  return request("/evaluation/");
+}
+
+export function createEvaluation(data) {
+  return request("/evaluation/", {
     method: "POST",
-    body: JSON.stringify({ placement: placementId, ...evaluationData }),
+    body: JSON.stringify(data),
   });
 }
 
-export async function getMyPlacement() {
-  return apiFetch("/placements/my-placement/");
+export function getEvaluationSummary(placementId) {
+  return request(`/evaluation/summary/${placementId}/`);
+}
+
+// ----REVIEW ENDPOINTS-------
+export function getReviews() {
+  return request("/reviews/");
+}
+
+export function createReview(data) {
+  return request("/review/", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
 }

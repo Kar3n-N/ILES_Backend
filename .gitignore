@@ -11,3 +11,7 @@ backend/users/__pycache__
 backend/iles/__pycache__
 backend/logbook/__pycache__
 backend/users/__pycache__
+backend/evaluation/__pycache__
+backend/evaluation/migrations
+backend/logbook/migrations
+backend/reviews/__pycache__
