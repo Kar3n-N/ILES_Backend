@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import Evaluation, EvaluationCriteria
 
 
+# Evaluation Criteria Serializer
 class EvaluationCriteriaSerializer(serializers.ModelSerializer):
     """Simple serializer for the scoring criteria."""
 
