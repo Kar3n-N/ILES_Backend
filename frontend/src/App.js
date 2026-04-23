@@ -32,6 +32,7 @@ import AcademicEvaluationPage from "./pages/academic_supervisor/AcademicEvaluati
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import AdminPlacementsPage from "./pages/admin/AdminPlacementsPage";
 
+//Not Page Found
 import NotPageFound from "./pages/NotPageFound";
 
 import "./styles/base.css";
