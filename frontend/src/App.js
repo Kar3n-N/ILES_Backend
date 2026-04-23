@@ -17,14 +17,20 @@ import LogbookPage from "./pages/student/LogbookPage";
 import ProgressPage from "./pages/student/ProgressPage";
 import ProfilePage from "./pages/student/ProfilePage";
 import SchedulePage from "./pages/student/SchedulePage";
-import DocumentsPage from "./page/student/DocumentsPage";
+import DocumentsPage from "./pages/student/DocumentsPage";
 
 // WorkplaceSupervisor imports
-import SupervisorDashboardPage from "./pages/SupervisorDashboardPage";
+import WorkplaceSupervisorDashboardPage from "./pages/workplace_supervisor/WorkplaceSupervisorDashboardPage";
+import WorkplaceEvaluationPage from "./pages/workplace_supervisor/WorkplaceEvaluationPage";
 
 // Academic Supervisor imports
-import AdminDashboardPage from "./pages/AdminDashboardPage";
-import EvaluationPage from "./pages/EvaluationPage";
+import AcademicSupervisorDashboardPage from "./pages/academic_supervisor/AcademicSupervisorDashboardPage";
+import AcademicEvaluationPage from "./pages/academic_supervisor/AcademicEvaluationPage";
+
+//Admin imports
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import AdminPlacementsPage from "./pages/admin/AdminPlacementsPage";
+
 import NotPageFound from "./pages/NotPageFound";
 
 import "./styles/base.css";
@@ -34,11 +40,11 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-
-          {/* Student Routes*/}
+          {/* Student routes */}
           <Route element={<ProtectedRoute allowedRoles={["student"]} />}>
             <Route element={<Layout />}>
               <Route
@@ -52,25 +58,48 @@ function App() {
               <Route path="/student/profile" element={<ProfilePage />} />
             </Route>
           </Route>
-
-          {/* Workplace Supervisor Routes*/}
+          {/* Workplace Supervisor */}
           <Route
             element={<ProtectedRoute allowedRoles={["workplace_supervisor"]} />}
           >
             <Route element={<Layout />}>
               <Route
                 path="/supervisor/dashboard"
-                element={<SupervisorDashboardPage />}
+                element={<WorkplaceSupervisorDashboardPage />}
               />
               <Route
                 path="/supervisor/evaluation"
-                element={<EvaluationPage />}
+                element={<WorkplaceEvaluationPage />}
               />
             </Route>
           </Route>
-
+          {/* Academic Supervisor */}
+          <Route
+            element={<ProtectedRoute allowedRoles={["academic_supervisor"]} />}
+          >
+            <Route element={<Layout />}>
+              <Route
+                path="/academic/dashboard"
+                element={<AcademicSupervisorDashboardPage />}
+              />
+              <Route
+                path="/academic/evaluation"
+                element={<AcademicEvaluationPage />}
+              />
+            </Route>
+          </Route>
           {/* Admin Routes*/}
-          <Route path="/admin" element={<AdminDashboardPage />} />
+          <Route
+            element={<ProtectedRoute allowedRoles={["internship_admin"]} />}
+          >
+            <Route element={<Layout />}>
+              <Route path="/admin" element={<AdminDashboardPage />} />
+              <Route
+                path="/admin/placements"
+                element={<AdminPlacementsPage />}
+              />
+            </Route>
+          </Route>
           <Route path="*" element={<NotPageFound />} />
         </Routes>
       </BrowserRouter>
