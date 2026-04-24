@@ -26,5 +26,12 @@ const NAV_CONFIG = {
     { label: 'Evaluations', path: '/academic/evaluation', icon: '⭐' },
     { label: 'Students', path: '/academic/students', icon: '👥' },
     
-  ]
-}
+  ],
+
+  internship_admin: [
+    { label: 'Dashboard', path: '/admin/dashboard', icon: '🏠' },
+    { label: 'Placements', path: '/admin/placements', icon: '🏢' },
+    { label: 'Users', path: '/admin/users', icon: '👥' },
+    { label: 'Criteria', path: '/admin/criteria', icon: '📋' },
+  ],
+};
