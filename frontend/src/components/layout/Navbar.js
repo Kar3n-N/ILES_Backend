@@ -42,35 +42,10 @@ function Navbar() {
       </a>
 
       {user && (
-        <>
-          <nav className="navbar__nav" aria-label="Main navigation">
-            <ul className="navbar__links" role="list">
-              {navlinks.map((link) => (
-                <li key={link.path}>
-                  <Link to={link.path} className="navbar__link">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="navbar__user">
-            <span className="navbar__username">
-              {user.first_name} {user.last_name}
-            </span>
-
-            <span className="navbar__role-badge">
-              {user.role.replace("_", " ")}
-            </span>
-            <button
-              className="navbar__logout-btn"
-              onClick={handleLogout}
-              type="button"
-            >
-              Sign Out
-            </button>
-          </div>
-        </>
+        <div className="navbar-right">
+          {/* Navigation Links are rendered as ghost buttons to match UI style*/}
+          <nav className="navbar-nav-links"></nav>
+        </div>
       )}
     </header>
   );
