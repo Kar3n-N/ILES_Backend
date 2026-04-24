@@ -61,3 +61,18 @@
     font-size: 0.875rem;
     transition: background 0 15s ease, color 0.15s ease;
 }
+
+.sidebar-link:hover {
+    background: var(--color-border);
+    color: var(--color-text);
+}
+
+.sidebar-link--active {
+    background: #1a365d;
+    color: white;
+}
+
+.sidebar-logout:hover {
+    background: #fff5f5;
+    color: #c53030;
+}
