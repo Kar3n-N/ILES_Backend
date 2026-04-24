@@ -36,7 +36,7 @@ const NAV_CONFIG = {
   ],
 };
 
-function Sideber() {
+function Sidebar() {
   const { user, logout } = useAuth();
   const navItems = NAV_CONFIG[user?.role] || [];
 
@@ -72,3 +72,5 @@ function Sideber() {
     </aside>
   );
 }
+
+export default Sidebar
