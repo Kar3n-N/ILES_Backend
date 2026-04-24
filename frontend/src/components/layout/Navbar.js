@@ -29,49 +29,23 @@ function Navbar() {
     navigate("/login");
   }
 
+  // Get current active label for the breadcrumb-style title
+  const activeLabel =
+    navlinks.find((l) => window.location.pathname.includes(l.path))?.label ||
+    "ILES";
+
   return (
     <header className="navbar" role="banner">
-      <div className="navbar__brand">
-        <Link to="/" className="navbar__logo">
-          ILES
-        </Link>
+      <div className="navbar-left">
+        <h1 className="navbar-Title">{activeLabel}</h1>
+        <p className="navbar-subtitle">
+          {new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
       </div>
-
-      <a href="#main-content" className="visually-hidden">
-        Skip to main content
-      </a>
-
-      {user && (
-        <>
-          <nav className="navbar__nav" aria-label="Main navigation">
-            <ul className="navbar__links" role="list">
-              {navlinks.map((link) => (
-                <li key={link.path}>
-                  <Link to={link.path} className="navbar__link">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="navbar__user">
-            <span className="navbar__username">
-              {user.first_name} {user.last_name}
-            </span>
-
-            <span className="navbar__role-badge">
-              {user.role.replace("_", " ")}
-            </span>
-            <button
-              className="navbar__logout-btn"
-              onClick={handleLogout}
-              type="button"
-            >
-              Sign Out
-            </button>
-          </div>
-        </>
-      )}
     </header>
   );
 }
