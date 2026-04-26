@@ -75,6 +75,14 @@ function Navbar() {
               {user.first_name?.[0]}
               {user.last_name?.[0]}
             </div>
+
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={handleLogout}
+              type="button"
+            >
+              Sign Out
+            </button>
           </div>
         </div>
       )}
