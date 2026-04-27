@@ -1,7 +1,25 @@
 :root {
-    
-    --color-sidebar-bg: #ffffff;
-    --color-border: #e2e8f0;
+    --color-primary: #1a365d;
+    --color-primary-light: #2b6cb0;
+    --color-green: #276749;
+    --color-orange: #c05621;
+    --color-purple: #6b46c1;
+
+    --color-surface: #ffffff;
+    --color-backgrund: #f7fafc;
+    --color-sidebar-bg:#ffffff;
+    --color-input-bg: #f7fafc;
+
     --color-text: #1a202c;
     --color-text-muted: #718096;
+    --color-text-light: #a0aec0;
+
+    --color-border: #e2e8f0;
+    --color-border-strong: #cbd5e0;
+    
+    
+
+    
+    
+
 }
