@@ -20,3 +20,125 @@
   --sidebar-text-muted: #64748b;
   --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
 }
+
+.iles-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  min-height: 100vh;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  font-family: var(--sidebar-font);
+  transition: width var(--sidebar-transition);
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 1px 0 0 var(--sidebar-border);
+}
+
+.iles-sidebar--collapsed { width: var(--sidebar-width-collapsed); }
+
+/* Brand header */
+.iles-sidebar__header { position: relative; flex-shrink: 0; }
+
+.iles-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px;
+  transition: padding var(--sidebar-transition);
+}
+
+.iles-sidebar--collapsed .iles-sidebar__brand { padding: 18px 0; justify-content: center; }
+
+.iles-sidebar__brand-logo { display: flex; align-items: baseline; gap: 0; flex-shrink: 0; }
+
+.iles-sidebar__brand-il {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 0.78rem; font-weight: 800;
+  padding: 2px 5px; border-radius: 4px;
+  letter-spacing: 0.04em; line-height: 1.3;
+}
+
+.iles-sidebar__brand-es { color: rgba(255,255,255,0.85); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; }
+
+.iles-sidebar__brand-meta {
+  display: flex; flex-direction: column; gap: 1px; overflow: hidden;
+  animation: fadeInRight 0.2s ease forwards;
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.iles-sidebar__brand-name { font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1; }
+.iles-sidebar__brand-label { font-size: 0.68rem; color: rgba(255,255,255,0.65); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1; }
+
+/* Collapse button */
+.iles-sidebar__collapse-btn {
+  position: absolute;
+  bottom: -12px; right: -12px;
+  z-index: 10;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--sidebar-border);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text-muted);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background var(--sidebar-transition), color var(--sidebar-transition), box-shadow var(--sidebar-transition);
+}
+
+.iles-sidebar__collapse-btn:hover {
+  background: var(--sidebar-hover-bg);
+  color: var(--sidebar-accent, #1a365d);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+/* User card */
+.iles-sidebar__user-card {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--sidebar-border);
+  position: relative;
+  margin-top: 8px;
+}
+
+.iles-sidebar--collapsed .iles-sidebar__user-card { justify-content: center; padding: 14px 0; }
+
+.iles-sidebar__user-avatar {
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 0.75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.iles-sidebar__user-info { flex: 1; min-width: 0; animation: fadeInRight 0.2s ease forwards; }
+
+.iles-sidebar__user-name {
+  font-size: 0.84rem; font-weight: 600;
+  color: var(--sidebar-text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  line-height: 1.2; margin: 0;
+}
+
+.iles-sidebar__user-role {
+  font-size: 0.7rem; color: var(--sidebar-text-muted);
+  text-transform: capitalize; white-space: nowrap;
+  line-height: 1.2; margin: 2px 0 0;
+}
+
+.iles-sidebar__user-status {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #38a169;
+  border: 2px solid var(--sidebar-bg);
+  flex-shrink: 0;
+  animation: statusPulse 3s ease-in-out infinite;
+}
