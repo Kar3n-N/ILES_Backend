@@ -135,7 +135,39 @@ function Navbar() {
         </div>
       </div>
 
-      {/* CENTRE nav links — added in ILES-104 */}
+      {/* CENTRE: Nav links — only render if user is logged in */}
+      {user && navLinks.length > 0 && (
+        <nav className="iles-navbar__nav" aria-label="Primary navigation">
+          {navLinks.map((link) => {
+            // Check if this link matches the current URL path
+            const isActive =
+              location.pathname === link.path ||
+              location.pathname.startsWith(link.path + "/");
+
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`iles-navbar__link ${isActive ? "iles-navbar__link--active" : ""}`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {/* Icon character */}
+                <span className="iles-navbar__link-icon" aria-hidden="true">
+                  {link.icon}
+                </span>
+
+                {/* Link text */}
+                <span className="iles-navbar__link-label">{link.label}</span>
+
+                {/* Animated underline pip shown only on active link */}
+                {isActive && (
+                  <span className="iles-navbar__link-pip" aria-hidden="true" />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+      )}
       {/* RIGHT user controls — added in ILES-105 */}
     </header>
   );
