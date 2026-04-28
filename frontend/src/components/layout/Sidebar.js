@@ -78,6 +78,36 @@ const NAV_CONFIG = {
   },
 };
 
+function Sidebar() {
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [collapsed, setCollapsed] = useState(false);
+    const [hoveredpath, setHoveredPath] = useState(nul);
+
+    const config = user ? (NAV_CONFIG[user.role] ?? NAV_CONFIG.student) : null;
+
+    if (!config) return null;
+
+    const { accentColor, accentLight, brandLabel, sections } = config;
+
+    const initials = user
+        ? `${user.first_name?.[0] ?? ""}${user.last_name?.[0] ?? ""}`.toUpperCase() ||
+            user.username?.slice(0, 2).toUpperCase()
+        : "??";
+
+    const displayName = user?.first_name
+        ? `${user.first_name} ${user.last_name ?? ""}`.trim()
+        : user?.username ?? "";
+
+    const progressPercent = user?.role === "student" ? 80 : null
+
+    function handleLogout() {
+        logout();
+        navigate("/login");
+    }
+}
+
 function HomeIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
