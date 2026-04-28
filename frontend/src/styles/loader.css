@@ -18,6 +18,7 @@
     border-radius: 50%;
     animation: iles-spin 0,8s liner infinite;
 }
+
 @keyframes iles-spin |{ to { tranform: rotate(360deg);}}
 .loader-text { font-size: 0.875rem; color: var(--color-text-muted);}
 
