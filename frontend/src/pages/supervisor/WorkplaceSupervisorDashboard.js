@@ -73,6 +73,12 @@ function WorkplaceSupervisorDashboard() {
                             </div>
                             <span className="badge badge-pending">Pending</span>                       
                           </div>
+
+
+                          /*Log preview */
+                          <div className="ws-card-body">
+                            <p className="ws-log-preview">{log.activities}</p>
+                          </div>
             </div>
         </div>
     )
