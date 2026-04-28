@@ -27,7 +27,6 @@
     position: sticky;
     top: 0;
     z-index: 200;
-    width: 100%;
     height: var(--navbar-height);
     background: var(--navbar-bg);
     border-bottom: 1px solid var(--navbar-border);
@@ -48,4 +47,20 @@
     box-shadow: var(--navbar-shadow-scrolled);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+}
+
+.iles-navbar__skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 9999;
+    background: #1a365d;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 0 0 8px 0;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+.iles-navbar__skip:focus {
+    left: 0;
 }
