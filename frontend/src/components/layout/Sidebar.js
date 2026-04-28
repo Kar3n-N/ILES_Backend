@@ -310,3 +310,4 @@ function CollapseIcon({ flipped }) {
   );
 }
 
+export default Sidebar
