@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import './Sidebar.css';
 
@@ -20,7 +21,7 @@ const NAV_CONFIG = {
         title: "Resources",
         items: [
           { path: "/student/schedule",  label: "Schedule",   icon: <CalendarIcon />, description: "Week-by-week timeline" },
-          { path: "/student/documents", label: "Documents",  icon: <DoycsIcon />,     description: "Upload & manage files" },
+          { path: "/student/documents", label: "Documents",  icon: <DocsIcon />,     description: "Upload & manage files" },
           { path: "/student/profile",   label: "My Profile", icon: <ProfileIcon />,  description: "Personal information" },
         ],
       },
