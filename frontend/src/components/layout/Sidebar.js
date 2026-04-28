@@ -127,7 +127,6 @@ function Sidebar() {
                         </div>
                     )}
                 </div>
-
                 <button 
                     className="iles-sidebar__collapse-btn"
                     onclick={() => setCollapsed((v) => !v)}
