@@ -1,3 +1,83 @@
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import './Sidebar.css';
+
+const NAV_CONFIG = {
+  student: {
+    accentColor: "#1a365d",
+    accentLight: "#ebf4ff",
+    brandLabel: "Student Portal",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/student/dashboard", label: "Overview",   icon: <HomeIcon />,     description: "Your internship at a glance" },
+          { path: "/student/logbook",   label: "Daily Logs", icon: <LogbookIcon />,  description: "Weekly activity logs" },
+          { path: "/student/progress",  label: "Progress",   icon: <ProgressIcon />, description: "Hours & completion rate" },
+        ],
+      },
+      {
+        title: "Resources",
+        items: [
+          { path: "/student/schedule",  label: "Schedule",   icon: <CalendarIcon />, description: "Week-by-week timeline" },
+          { path: "/student/documents", label: "Documents",  icon: <DoycsIcon />,     description: "Upload & manage files" },
+          { path: "/student/profile",   label: "My Profile", icon: <ProfileIcon />,  description: "Personal information" },
+        ],
+      },
+    ],
+  },
+
+  workplace_supervisor: {
+    accentColor: "#276749",
+    accentLight: "#f0fff4",
+    brandLabel: "Workplace Supervisor",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/supervisor/dashboard",  label: "Dashboard",   icon: <HomeIcon />,    description: "Review queue overview" },
+          { path: "/supervisor/students",   label: "My Students", icon: <UsersIcon />,   description: "Assigned interns" },
+          { path: "/supervisor/evaluation", label: "Evaluations", icon: <StarIcon />,    description: "Score & grade students" },
+          { path: "/supervisor/profile",    label: "My Profile",  icon: <ProfileIcon />, description: "Your information" },
+        ],
+      },
+    ],
+  },
+
+  academic_supervisor: {
+    accentColor: "#c05621",
+    accentLight: "#fff7ed",
+    brandLabel: "Academic Supervisor",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/academic/dashboard",  label: "Dashboard",   icon: <HomeIcon />,  description: "Evaluation overview" },
+          { path: "/academic/evaluation", label: "Evaluations", icon: <StarIcon />,  description: "Weighted scoring" },
+          { path: "/academic/students",   label: "Students",    icon: <UsersIcon />, description: "Assigned students" },
+        ],
+      },
+    ],
+  },
+
+  internship_admin: {
+    accentColor: "#6b46c1",
+    accentLight: "#faf5ff",
+    brandLabel: "Administration",
+    sections: [
+      {
+        title: null,
+        items: [
+          { path: "/admin/dashboard",  label: "Dashboard",  icon: <HomeIcon />,      description: "System overview" },
+          { path: "/admin/placements", label: "Placements", icon: <BuildingIcon />,  description: "Company placements" },
+          { path: "/admin/users",      label: "Users",      icon: <UsersIcon />,     description: "Manage all accounts" },
+          { path: "/admin/criteria",   label: "Criteria",   icon: <ClipboardIcon />, description: "Evaluation criteria" },
+        ],
+      },
+    ],
+  },
+};
+
 function HomeIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
