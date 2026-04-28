@@ -23,5 +23,8 @@
 .skeleton {
     background: linear-gradient(90deg,
         var(--color-border) 25%, var(--color-background) 50%, var(--color-border) 75%
-        )[;] 
+        );
+        background-size: 200% 100%;
+        animatoin: shimmer 1.5s infinite;
+        border-radius: var(--radius-sm);
 }
