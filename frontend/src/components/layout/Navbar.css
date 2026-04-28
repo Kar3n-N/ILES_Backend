@@ -41,3 +41,11 @@
         background var(--navbar-transition),
         box-shadow var(--navbar-transition);
 }
+
+.iles-navbar--scrolled {
+    height: var(--navbar-height-scrolled);
+    background: var(--navbar-bg-scrolled);
+    box-shadow: var(--navbar-shadow-scrolled);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
