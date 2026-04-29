@@ -318,3 +318,32 @@
     flex-shrink: 0;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
+
+.iles-navbar__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+}
+.iles-navbar__user-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navbar-text-primary);
+    line-height: 1;
+    white-space: nowrap;
+}
+.iles-navbar__user-role {
+    font-size: 0.67rem;
+    color: var(--navbar-text-muted);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.iles-navbar__chevron {
+    color: var(--navbar-text-muted);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.iles-navbar__chevron--up {
+    transform: rotate(180deg);
+}
