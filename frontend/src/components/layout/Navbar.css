@@ -429,3 +429,23 @@
 .iles-navbar__dropdown-section + .iles-navbar__dropdown-section {
     border-top: 1px solid var(--navbar-border);
 }
+
+.iles-navbar__dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--navbar-text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    text-align: left;
+    transition:
+        background var(--navbar-transition),
+        color var(--navbar-transition);
+}
