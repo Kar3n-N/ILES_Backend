@@ -139,3 +139,25 @@
     gap: 2px;
     margin: 0 auto;
 }
+
+.iles-navbar__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--navbar-text-secondary);
+    text-decoration: none;
+    transition:
+        background var(--navbar-transition),
+        color var(--navbar-transition);
+    white-space: nowrap;
+}
+
+.iles-navbar__link:hover {
+    background: rgba(26, 54, 93, 0.06);
+    color: #1a365d;
+}
