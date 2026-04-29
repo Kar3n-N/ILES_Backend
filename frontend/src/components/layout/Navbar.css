@@ -274,3 +274,31 @@
 .iles-navbar__user-menu {
     position: relative;
 }
+
+.iles-navbar__avatar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px 5px 6px;
+    border-radius: 10px;
+    border: 1px solid var(--navbar-border);
+    background: transparent;
+    cursor: pointer;
+    transition:
+        background var(--navbar-transition),
+        border-color var(--navbar-transition),
+        box-shadow var(--navbar-transition);
+}
+
+.iles-navbar__avatar-btn:hover,
+.iles-navbar__avatar-btn--open {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.14);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.dark .iles-navbar__avatar-btn:hover,
+.dark .iles-navbar__avatar-btn--open {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+}
