@@ -112,3 +112,30 @@
     background: var(--navbar-border);
     flex-shrink: 0;
 }
+
+.iles-navbar__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    line-height: 1;
+}
+
+.iles-navbar__date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--navbar-text-primary);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.iles-navbar__time {
+    font-size: 0.68rem;
+    color: var(--navbar-text-muted);
+}
+
+.iles-navbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0 auto;
+}
