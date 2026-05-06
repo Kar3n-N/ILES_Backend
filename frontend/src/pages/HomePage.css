@@ -30,3 +30,17 @@
 .home-page[data-theme="dark"] .home-nav__logo-name { color: #f1f5f9;}
 .home-nav__logo-sub { font-size: 0.72rem; color: var(--color-text-muted); display: none;}
 @media (min-width: 640px) { .home-nav__logo-sub { display: inline; } }
+
+.home-nav__logo-name { font-size: 0.95rem; font-weight: 700; color: var(--color-text); }
+.home-page[data-theme="dark"] .home-nav__logo-name { color: #f1f5f9; }
+.home-nav__logo-sub { font-size: 0.72rem; color: var(--color-text-muted); display: none; }
+@media (min-width: 640px) { .home-nav__logo-sub { display: inline; } }
+
+.home-nav__actions { display: flex; align-items: center; gap: 8px; }
+.home-nav__theme-btn {
+  padding: 8px; border-radius: var(--radius-sm);
+  border: none; background: transparent;
+  color: var(--color-text-muted); cursor: pointer;
+  display: flex; align-items: center;
+  transition: background 0.15s, color 0.15s;
+}
