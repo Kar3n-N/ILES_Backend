@@ -151,7 +151,25 @@ function AdminDashboardPage() {
         u.role.toLowerCase().includes(search.toLowerCase()),
     );
 
-  return <h1> ADMIN DASHBOARD PAGE</h1>;
+  return (
+    <div className="page">
+      <PageHead
+        crumb="System · Overview"
+        title="Admin dashboard"
+        sub="Manage users, pairings, cohorts, and system health."
+        actions={
+          <>
+            <Btn sm kind="ghost">
+              Export CSV
+            </Btn>
+            <Btn sm kind="primary">
+              {I.plus} Invite user
+            </Btn>
+          </>
+        }
+      />
+    </div>
+  );
 }
 
 export default AdminDashboardPage;
