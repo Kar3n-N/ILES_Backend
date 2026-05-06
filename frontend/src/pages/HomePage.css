@@ -1,0 +1,11 @@
+.home-page {  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--color-text);
+}
+.home-page[data-theme="dark"] { background: #0f172a; color: #f1f5f9; }
+
+/* Navbar */
+.home-nav {
