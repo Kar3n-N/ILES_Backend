@@ -96,6 +96,16 @@ const ROLE_MAP = {
 };
 
 function AdminDashboardPage() {
+  const { user } = useAuth();
+  const isDemo = DEMO_USERNAMES.includes(user?.username);
+
+  const [users, setUsers] = useState(isDemo ? DEMO_USERS : []);
+  const [cohorts, setCohorts] = useState(isDemo ? DEMO_COHORTS : []);
+  const [audit, setAudit] = useState(isDemo ? DEMO_AUDIT : []);
+  const [stats, setStats] = useState(isDemo ? DEMO_STATS : null);
+  const [filter, setFilter] = useState("All");
+  const [search, setSearch] = useState("");
+
   return <h1> ADMIN DASHBOARD PAGE</h1>;
 }
 
