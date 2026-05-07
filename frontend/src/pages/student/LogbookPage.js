@@ -90,6 +90,109 @@ function LogbookPage() {
           ))}
         </ul>
       </Card>
+      <div className="col">
+        <Card kind="accent">
+          <div className="row row--between row--center">
+            <div>
+              <div className="tiny" style={{ color: "var(--color-primary)" }}>
+                Currently editing
+              </div>
+              <h3 className="section-title" style={{ marginTop: 4 }}>
+                Week 7 · May 4 — May 8
+              </h3>
+            </div>
+            <div className="row row--center" style={{ gap: 8 }}>
+              <Chip kind="warn" dot>
+                Draft
+              </Chip>
+              <Btn sm kind="ghost">
+                Save draft
+              </Btn>
+              <Btn sm kind="primary">
+                Submit for approval {I.arrow}
+              </Btn>
+            </div>
+          </div>
+          <div style={{ marginTop: 12 }}>
+            <Bar pct={40} />
+          </div>
+        </Card>
+
+        <Card label="① Tasks completed this week">
+          <Field kind="ta">
+            <Lines count={4} />
+          </Field>
+        </Card>
+
+        <div className="grid grid--2">
+          <Card label="② Skills practiced">
+            <div className="row row--wrap" style={{ gap: 6 }}>
+              <Chip kind="accent">REST APIs</Chip>
+              <Chip kind="accent">PostgreSQL</Chip>
+              <Chip kind="accent">Docker</Chip>
+              <Chip>{I.plus} add skill</Chip>
+            </div>
+            <div className="field__hint" style={{ marginTop: 12 }}>
+              Tagged skills automatically appear on your Progress page.
+            </div>
+          </Card>
+          <Card label="③ Hours">
+            <div className="row" style={{ gap: 8 }}>
+              {["Mon", "Tue", "Wed", "Thu", "Fri"].map((d, i) => (
+                <Field key={d} label={d} placeholder={i < 3 ? "8" : "—"} />
+              ))}
+            </div>
+            <div className="field__hint" style={{ marginTop: 8 }}>
+              Total: 24 hrs · 16 hrs remaining this week
+            </div>
+          </Card>
+        </div>
+
+        <Card label="④ Challenges & lessons learned">
+          <Field kind="ta">
+            <Lines count={3} />
+          </Field>
+        </Card>
+
+        <Card label="⑤ Attachments (optional)">
+          <Field kind="file">
+            <span style={{ color: "var(--color-primary)", fontWeight: 600 }}>
+              {I.upload} Drop screenshots, code, photos…
+            </span>
+          </Field>
+        </Card>
+
+        <Card kind="ghost" label="Supervisor approval">
+          <div className="row row--between row--center">
+            <div className="row row--center" style={{ gap: 12 }}>
+              <span className="av av--orange">JO</span>
+              <div>
+                <b>Mr. Okello</b> — Workplace supervisor
+                <div className="muted" style={{ fontSize: 12 }}>
+                  Will review this entry once you submit. Approval typically
+                  within 48 hours.
+                </div>
+              </div>
+            </div>
+            <Chip>Awaiting submit</Chip>
+          </div>
+        </Card>
+
+        <Card kind="warn" label="Week 4 was returned">
+          <div className="row row--between row--center">
+            <div className="flex-1" style={{ paddingRight: 16 }}>
+              <b>
+                "Add more detail on the API testing task. Mention which
+                endpoints you tested and what tools you used."
+              </b>
+              <div className="muted" style={{ fontSize: 12, marginTop: 4 }}>
+                — Mr. Okello · 16 Apr 2026
+              </div>
+            </div>
+            <Btn sm>Open Week 4 {I.arrow}</Btn>
+          </div>
+        </Card>
+      </div>
     </div>
   </PageShell>;
 }
