@@ -111,7 +111,16 @@ home-stats {
 .home-page[data-theme="dark"] .home-section__title { color: #f1f5f9; }
 .home-section__sub { text-align: center; font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 48px; }
 
-
+.home-how { padding: 80px 32px; background: var(--color-background); }
+.home-page[data-theme="dark"] .home-how { background: #0f172a; }
+.home-how__grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1100px; margin: 0 auto; }
+@media (min-width: 768px)  { .home-how__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .home-how__grid { grid-template-columns: repeat(4, 1fr); } }
+.home-how__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: 20px;
+}
 
 
 
