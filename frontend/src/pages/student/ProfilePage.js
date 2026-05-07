@@ -64,3 +64,12 @@ export default function ProfilePage() {
               <Field label="Emergency contact" placeholder="Name + phone" />
             </div>
           </Card>
+
+          <Card label="Academic info">
+            <div className="grid grid--2">
+              <Field label="Student ID" placeholder="22/U/12345" />
+              <Field label="Programme" placeholder="BSc Software Engineering" />
+              <Field label="Year of study" placeholder="3" />
+              <Field label="Cohort" placeholder="2026 · Semester 2" />
+            </div>
+          </Card>
