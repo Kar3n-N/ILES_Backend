@@ -129,6 +129,10 @@ home-stats {
   font-size: 0.72rem; font-weight: 700; color: #fff;
   margin-bottom: 12px;
 }
+.home-how__card-title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); margin-bottom: 8px; }
+.home-page[data-theme="dark"] .home-how__card-title { color: #f1f5f9; }
+.home-how__card-desc { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.6; }
+
 
 
 
