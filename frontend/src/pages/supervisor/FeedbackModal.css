@@ -55,3 +55,4 @@
     transition: border 0.15s ease;
 }
 .modal-body textarea:focus {outline: none; border-color: #1a365d; }
+.modal-hint { font-size: 0.72rem; color: (var-text-muted); margin-top: -0.5rem; }
