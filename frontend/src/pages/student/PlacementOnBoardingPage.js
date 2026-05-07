@@ -76,3 +76,14 @@ export default function OnboardingPage() {
           </div>
         </Card>
       </div>
+
+      <Card kind="ghost" label="What happens next">
+        <ol style={{ margin: 0, paddingLeft: 20, fontSize: 14, lineHeight: 1.8, color: "var(--color-text-muted)" }}>
+          <li>Academic supervisor reviews and approves your placement (typically 1–2 days).</li>
+          <li>Workplace supervisor receives an invite email and confirms.</li>
+          <li>Your dashboard, logbook, and evaluations unlock automatically.</li>
+        </ol>
+      </Card>
+    </PageShell>
+  );
+}
