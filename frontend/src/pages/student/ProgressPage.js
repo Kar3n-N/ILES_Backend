@@ -35,3 +35,16 @@ export default function ProgressPage() {
         </div>
         <div style={{ marginTop: 16 }}><Bar pct={58} /></div>
       </Card>
+
+      <div className="grid grid--4">
+        <Stat label="Logbook completion" value="6" unit=" / 7 weeks" />
+        <Stat label="Hours logged" value="248" unit=" of ~480" />
+        <Stat label="Skills tagged" value="14" delta="+3 this month" />
+        <Stat label="Visits done" value="1" unit=" of 2" />
+      </div>
+
+      <div className="grid grid--main-narrow">
+        <div className="col">
+          <Card label="Hours per week">
+            <Placeholder label="bar chart · weeks 1–12 · target 40 h/week" h={200} />
+          </Card>
