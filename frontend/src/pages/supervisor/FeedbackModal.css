@@ -32,3 +32,6 @@
 .modal-header p  { font-size:0.82rem; color: var(--color-text-muted); margin-top: 0.2rem; }
 
 
+.modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+}
