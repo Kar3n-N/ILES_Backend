@@ -17,3 +17,7 @@
     overflow: hidden;
     animation:modal-in 0.2s ease;
 }
+
+@keyframes modal-in {
+    
+}
