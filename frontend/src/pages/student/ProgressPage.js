@@ -1,7 +1,6 @@
 import React from 'react';
-import PageShell from '../components/PageShell/PageShell';
-import { PageHead, Card, Stat, Btn, Bar, Placeholder } from '../components/common/Primitives';
-import { I } from '../components/common/Icons';
+import { PageHead, Card, Stat, Btn, Bar, Placeholder } from '../../components/common/Primitives';
+import { I } from '../../components/common/Icons';
 
 const SKILLS = [
     ["REST APIs", 80],
@@ -14,7 +13,7 @@ const SKILLS = [
 
 export default function ProgressPage() {
   return (
-    <PageShell role="student">
+    <div className='page'>
       <PageHead
         crumb="Workspace · Progress"
         title="Your internship progress"
@@ -85,6 +84,6 @@ export default function ProgressPage() {
           </Card>
         </div>
       </div>
-    </PageShell>
+    </div>
   );
 }
