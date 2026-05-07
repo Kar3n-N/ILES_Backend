@@ -144,6 +144,19 @@ home-stats {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
+home-features__card:hover { border-color: #b0bec5; box-shadow: var(--shadow-sm); }
+.home-page[data-theme="dark"] .home-features__card { background: #1e293b; border-color: #334155; }
+.home-page[data-theme="dark"] .home-features__card:hover { border-color: #475569; }
+.home-features__icon-wrap {
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+}
+.home-features__card-title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); margin-bottom: 6px; }
+.home-page[data-theme="dark"] .home-features__card-title { color: #f1f5f9; }
+.home-features__card-desc { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.6; }
+
+
+
 
 
 
