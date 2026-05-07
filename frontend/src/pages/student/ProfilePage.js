@@ -1,7 +1,6 @@
 import React from 'react';
-import PageShell from '../components/PageShell/PageShell';
-import { PageHead, Card, Btn, Chip, Field, Av } from '../components/common/Primitives';
-import { I } from '../components/common/Icons';
+import { PageHead, Card, Btn, Chip, Field, Av } from '../../components/common/Primitives';
+import { I } from '../../components/common/Icons';
 
 function Toggle ({ on }) {
     return (
@@ -11,7 +10,7 @@ function Toggle ({ on }) {
             position: "relative", flexShrink: 0,
         }}>
             <div style={{
-                width: 16, height: 16, borderRadius: 999, background: #fff,
+                width: 16, height: 16, borderRadius: 999, background: "#fff",
                 position: "absolute", top: 2, left: on ? 18 : 2,
                 transition: "left .15s", boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
             }} />
@@ -19,9 +18,9 @@ function Toggle ({ on }) {
     );
 }
 
-export default function ProfilePage() {
+function ProfilePage() {
   return (
-    <PageShell role="student">
+    <div className='page'>
       <PageHead
         crumb="Account · Profile"
         title="Your profile"
@@ -110,6 +109,7 @@ export default function ProfilePage() {
           </Card>
         </div>
       </div>
-    </PageShell>
+    </div>
   );
 }
+export default ProfilePage
