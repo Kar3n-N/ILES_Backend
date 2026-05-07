@@ -133,6 +133,18 @@ home-stats {
 .home-page[data-theme="dark"] .home-how__card-title { color: #f1f5f9; }
 .home-how__card-desc { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.6; }
 
+.home-features { padding: 80px 32px; background: #fff; }
+.home-page[data-theme="dark"] .home-features { background: #0f172a; }
+.home-features__grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 1100px; margin: 0 auto; }
+@media (min-width: 768px)  { .home-features__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .home-features__grid { grid-template-columns: repeat(3, 1fr); } }
+.home-features__card {
+  padding: 20px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-border); background: var(--color-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+
 
 
 
