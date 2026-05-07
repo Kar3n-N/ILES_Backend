@@ -166,6 +166,13 @@ home-features__card:hover { border-color: #b0bec5; box-shadow: var(--shadow-sm);
   transition: opacity 0.15s, background 0.15s;
 }
 
+home-cta__btn--white { background: #fff; color: #1a365d; }
+.home-cta__btn--white:hover { background: #f0f4f8; }
+.home-cta__btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.home-cta__btn--ghost:hover { background: rgba(255,255,255,0.1); }
+
+
+
 
 
 
