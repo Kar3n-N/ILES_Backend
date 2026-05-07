@@ -107,6 +107,11 @@ home-stats {
 .home-page[data-theme="dark"] .home-stats__value { color: #90cdf4; }
 .home-stats__label { font-size: 0.78rem; color: var(--color-text-muted); }
 
+.home-section__title { text-align: center; font-size: 1.6rem; font-weight: 700; color: var(--color-text); margin-bottom: 8px; }
+.home-page[data-theme="dark"] .home-section__title { color: #f1f5f9; }
+.home-section__sub { text-align: center; font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 48px; }
+
+
 
 
 
