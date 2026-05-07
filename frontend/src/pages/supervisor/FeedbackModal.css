@@ -58,4 +58,4 @@
 .modal-hint { font-size: 0.72rem; color: (var-text-muted); margin-top: -0.5rem; }
 
 
-.modal-actions{}
+.modal-actions{ display: flex; gap: 0.75rem; justify-content: flex-end; }
