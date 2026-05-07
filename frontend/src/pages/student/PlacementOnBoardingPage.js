@@ -45,3 +45,18 @@ export default function OnboardingPage() {
           </div>
           <div className="field__hint" style={{ marginTop: 12 }}>We'll email them an invite to confirm and create a supervisor account.</div>
         </Card>
+
+        <Card label="Placement details">
+          <div className="col" style={{ gap: 12 }}>
+            <div className="row" style={{ gap: 12 }}>
+              <Field label="Start date" placeholder="2026-05-12" />
+              <Field label="End date" placeholder="2026-08-12" />
+            </div>
+            <div className="row" style={{ gap: 12 }}>
+              <Field label="Total weeks" placeholder="12" />
+              <Field label="Hours / week" placeholder="40" />
+            </div>
+            <Field label="Role / position" placeholder="e.g. Software Engineering Intern" />
+            <Field label="Brief description of duties" kind="ta"><Lines count={3} /></Field>
+          </div>
+        </Card>
