@@ -16,7 +16,7 @@ function Toggle ({ on }) {
                 transition: "left .15s", boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
             }} />
         </div>
-    )
+    );
 }
 
 export default function ProfilePage() {
@@ -27,3 +27,17 @@ export default function ProfilePage() {
         title="Your profile"
         actions={<><Btn sm kind="ghost">Cancel</Btn><Btn sm kind="primary">Save changes</Btn></>}
       />
+
+      <div className="grid grid--profile">
+        <div className="col">
+          <Card>
+            <div style={{ display: "grid", placeItems: "center", gap: 12, textAlign: "center" }}>
+              <Av name="Karen Kawooya" lg />
+              <Btn sm kind="ghost">{I.upload} Change photo</Btn>
+              <div>
+                <h3 className="section-title">Karen Kawooya</h3>
+                <div className="section-sub">karen.k@university.ac.ug</div>
+              </div>
+              <div className="row" style={{ gap: 6 }}>
+                <Chip kind="accent">Student</Chip>
+                <Chip kind="ok" dot>Active</Chip>
