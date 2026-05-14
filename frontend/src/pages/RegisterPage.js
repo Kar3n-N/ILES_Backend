@@ -170,3 +170,18 @@ export default function RegisterPage() {
               </button>
             </div>
           )}
+
+          {step === 2 && (
+            <form onSubmit={handleStep2Submit}>
+              <h1 className="reg-step__title">Basic Information</h1>
+              <p className="reg-step__sub">Your credentials and personal details.</p>
+              <div className="reg-row">
+                <div className="reg-group">
+                  <label className="reg-label">First Name</label>
+                  <input className="reg-input" value={form.firstName} onChange={(e) => update("firstName", e.target.value)} placeholder="John" required />
+                </div>
+                <div className="reg-group">
+                  <label className="reg-label">Last Name</label>
+                  <input className="reg-input" value={form.lastName} onChange={(e) => update("lastName", e.target.value)} placeholder="Doe" required />
+                </div>
+              </div>
