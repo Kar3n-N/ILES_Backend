@@ -140,3 +140,20 @@ export default function RegisterPage() {
               <span>{error}</span>
             </div>
           )}
+
+          {step === 1 && (
+            <div>
+              <h1 className="reg-step__title">What's your role?</h1>
+              <p className="reg-step__sub">Your role determines your dashboard and features.</p>
+              <div className="reg-roles">
+                {ROLES.map((r) => (
+                  <button
+                    key={r.value}
+                    className={`reg-role${role === r.value ? " reg-role--selected" : ""}`}
+                    onClick={() => { setRole(r.value); setError(""); }}
+                  >
+                    <div className="reg-role__icon" style={{ backgroundColor: r.color + "15" }}>
+                      <r.icon size={18} color={r.color} />
+                    </div>
+                    <p className="reg-role__label">{r.label}</p>
+                    <p className="reg-role__desc">{r.desc}</p>
