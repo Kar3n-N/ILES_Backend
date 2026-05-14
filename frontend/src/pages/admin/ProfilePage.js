@@ -1,73 +1,101 @@
-import { useState } from "react";
-import { PageHead, Card, Btn } from "../../components/common/Primitives";
-import "../../styles/ProfilePage.css";
+import React from 'react';
+import { PageHead, Card, Btn, Chip, Field, Av } from '../../components/common/Primitives';
+import { I } from '../../components/common/Icons';
+
+function Toggle({ on }) {
+  return (
+    <div style={{
+      width: 36, height: 20, borderRadius: 999,
+      background: on ? "var(--color-primary)" : "var(--color-border-strong)",
+      position: "relative", flexShrink: 0,
+    }}>
+      <div style={{
+        width: 16, height: 16, borderRadius: 999, background: "#fff",
+        position: "absolute", top: 2, left: on ? 18 : 2,
+        transition: "left .15s", boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+      }} />
+    </div>
+  );
+}
 
 export default function AdminProfilePage() {
-  const [form, setForm] = useState({
-    name: "Admin User",
-    email: "admin@iles.mak.ac.ug",
-    phone: "+256 700 000 004",
-  });
-
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  const initials = form.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
   return (
     <div className="page">
-      <PageHead title="My Profile" sub="View and update your account details." />
+      <PageHead
+        crumb="Account · Profile"
+        title="Your profile"
+        actions={<><Btn sm kind="ghost">Cancel</Btn><Btn sm kind="primary">Save changes</Btn></>}
+      />
 
-      <div className="grid grid--2">
-        <Card label="Account">
-          <div className="profile-avatar-row">
-            <div className="profile-avatar">{initials}</div>
-            <div>
-              <div className="profile-name">{form.name}</div>
-              <div className="profile-role">Admin</div>
+      <div className="grid grid--profile">
+        <div className="col">
+          <Card>
+            <div style={{ display: "grid", placeItems: "center", gap: 12, textAlign: "center" }}>
+              <Av name="Admin User" lg />
+              <Btn sm kind="ghost">{I.upload} Change photo</Btn>
+              <div>
+                <h3 className="section-title">Admin User</h3>
+                <div className="section-sub">admin@iles.mak.ac.ug</div>
+              </div>
+              <div className="row" style={{ gap: 6 }}>
+                <Chip kind="accent">Administrator</Chip>
+                <Chip kind="ok" dot>Active</Chip>
+              </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+          <Card kind="ghost" label="On this page">
+            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+              {["Personal info", "System access", "Account & security", "Notifications"].map(s => (
+                <li key={s} style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)", fontSize: 13, color: "var(--color-text-muted)" }}>{s}</li>
+              ))}
+            </ul>
+          </Card>
+        </div>
 
-        <Card label="Edit Details">
-          <div className="profile-form">
-            <div className="profile-group">
-              <label className="profile-label">Full name</label>
-              <input
-                className="profile-input"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-              />
+        <div className="col">
+          <Card label="Personal info">
+            <div className="grid grid--2">
+              <Field label="First name" placeholder="Admin" />
+              <Field label="Last name" placeholder="User" />
+              <Field label="Phone" placeholder="+256 7__ ___ ___" />
+              <Field label="Role / title" placeholder="Internship Coordinator" />
             </div>
-            <div className="profile-group">
-              <label className="profile-label">Email</label>
-              <input
-                className="profile-input"
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-              />
+          </Card>
+
+          <Card label="System access">
+            <div className="grid grid--2">
+              <Field label="Institution" placeholder="Makerere University" />
+              <Field label="Department" placeholder="Academic Affairs" />
             </div>
-            <div className="profile-group">
-              <label className="profile-label">Phone</label>
-              <input
-                className="profile-input"
-                name="phone"
-                value={form.phone}
-                onChange={handleChange}
-              />
+            <div style={{ marginTop: 12, fontSize: 13, color: "var(--color-text-muted)" }}>
+              Admin permissions are managed by the system. Contact IT to change access level.
             </div>
-            <Btn kind="primary" sm>Save changes</Btn>
-          </div>
-        </Card>
+          </Card>
+
+          <Card label="Account & security">
+            <div className="grid grid--2">
+              <Field label="Email" placeholder="admin@iles.mak.ac.ug" />
+              <Field label="Password"><span>••••••••••</span></Field>
+            </div>
+            <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
+              <Btn sm>Change password</Btn>
+            </div>
+          </Card>
+
+          <Card label="Notifications">
+            {[
+              ["Email me when a new placement is submitted for approval", true],
+              ["Email me when a user account is created", false],
+              ["Daily system activity summary", true],
+              ["Alert me on failed login attempts", true],
+            ].map(([s, on]) => (
+              <div key={s} className="row row--between row--center" style={{ padding: "10px 0", borderBottom: "1px solid var(--color-border)" }}>
+                <span style={{ fontSize: 14 }}>{s}</span>
+                <Toggle on={on} />
+              </div>
+            ))}
+          </Card>
+        </div>
       </div>
     </div>
   );
