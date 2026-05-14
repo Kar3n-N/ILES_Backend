@@ -46,3 +46,16 @@ export default function RegisterPage() {
 
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
   const selectedRole = ROLES.find((r) => r.value === role);
+
+  function handleNext() {
+    if (step === 1 && !role) { setError("Please select your role."); return; }
+    setError(""); setStep((s) => s + 1);
+  }
+
+  function handleStep2Submit(e) {
+    e.preventDefault();
+    const err = validatePassword(form.password);
+    if (err) { setError(err); return; }
+    if (form.password !== form.confirmPassword) { setError("Passwords do not match."); return; }
+    setError(""); setStep(3);
+  }
