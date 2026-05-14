@@ -251,6 +251,14 @@ export default function RegisterPage() {
                     <input className="reg-input reg-input--icon" value={form.course} onChange={(e) => update("course", e.target.value)} placeholder="BS Computer Science" />
                   </div>
                 </div>
+                <div className="reg-group">
+                  <label className="reg-label">Department</label>
+                  <div className="reg-input-wrap">
+                    <Building2 size={14} className="reg-input-icon" />
+                    <input className="reg-input reg-input--icon" value={form.department} onChange={(e) => update("department", e.target.value)} placeholder="DECS" />
+                  </div>
+                </div>
+              </div>
 
 
               
