@@ -49,3 +49,5 @@ function FeedbackModal({ studentName, action, onClose, onSubmit }) {
     );
 }
 
+export default FeedbackModal;
+
