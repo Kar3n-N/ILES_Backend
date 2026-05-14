@@ -116,7 +116,7 @@ const STATS = [
 function getDashboardPath(role) {
   if (role === "workplace_supervisor") return "/supervisor/dashboard";
   if (role === "academic_supervisor") return "/academic/dashboard";
-  if (role === "internship_admin") return "/admin";
+  if (role === "internship_admin") return "/admin/dashboard";
 
   return "/student/dashboard";
 }

@@ -27,7 +27,7 @@ const ROLE_NAV_LINKS = {
     { path: "/supervisor/dashboard", label: "Dashboard", icon: "⌂" },
     { path: "/supervisor/evaluation", label: "Evaluations", icon: "★" },
   ],
-  internship_admin: [{ path: "/admin", label: "Admin Dashboard", icon: "⌂" }],
+  internship_admin: [{ path: "/admin/dashboard", label: "Admin Dashboard", icon: "⌂" }],
 };
 
 const ROLE_CONFIG = {

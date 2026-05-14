@@ -92,7 +92,7 @@ function AppRoutes() {
         {/* Admin Routes*/}
         <Route element={<ProtectedRoute allowedRoles={["internship_admin"]} />}>
           <Route element={<Layout />}>
-            <Route path="/admin" element={<AdminDashboardPage />} />
+            <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
             <Route path="/admin/placements" element={<AdminPlacementsPage />} />
             <Route path="/admin/profile" element={<AdminProfilePage />} />
           </Route>

@@ -31,18 +31,22 @@
 .card--accent {
     border-color: var(--color-primary);
     background: var(--primary-soft);
+    color: #1a202c;
 }
 .card--ok {
     border-color: rgba(39, 103, 73, 0.3);
     background: var(--green-soft);
+    color: #1a202c;
 }
 .card--warn {
     border-color: rgba(192, 86, 33, 0.3);
     background: var(--orange-soft);
+    color: #1a202c;
 }
 .card--danger {
     border-color: rgba(197, 48, 48, 0.3);
     background: var(--red-soft);
+    color: #1a202c;
 }
 .card--ghost {
     border-style: dashed;
@@ -275,7 +279,7 @@
 .bar > i {
     display: block;
     height: 100%;
-    background: var(--color-primary);
+    background: #3b82f6;
     border-radius: inherit;
 }
 .bar--ok > i {
@@ -443,6 +447,7 @@
     font-size: 16px;
     font-weight: 700;
     margin: 0;
+    color: inherit;
 }
 .section-sub {
     font-size: 13px;
