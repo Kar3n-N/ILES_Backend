@@ -1,4 +1,3 @@
-```jsx
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -148,7 +147,7 @@ export default function HomePage() {
               to={getDashboardPath(user.role)}
               className="home-nav__btn home-nav__btn--primary"
             >
-              
+              Go to Dashboard
             </Link>
           ) : (
             <>
@@ -156,7 +155,7 @@ export default function HomePage() {
                 to="/login"
                 className="home-nav__btn home-nav__btn--outline"
               >
-                
+                Login
               </Link>
 
               <Link
@@ -173,19 +172,20 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero__content">
           <span className="home-hero__badge">
-            
+            Makerere University · Internship Platform
           </span>
 
           <h1 className="home-hero__title">
-            
+            Manage Your Internship
             <br />
             <span className="home-hero__title-accent">
-              
+              From Start to Finish
             </span>
           </h1>
 
           <p className="home-hero__desc">
-            
+            ILES connects students, workplace supervisors, and academic supervisors
+            in one place — log your work, get feedback, and track your progress.
           </p>
 
           <div className="home-hero__cta">
@@ -227,7 +227,7 @@ export default function HomePage() {
         </h2>
 
         <p className="home-section__sub">
-          
+          Four simple steps from placement to final evaluation.
         </p>
 
         <div className="home-how__grid">
@@ -258,7 +258,7 @@ export default function HomePage() {
         </h2>
 
         <p className="home-section__sub">
-          
+          Everything you need to run a successful internship programme.
         </p>
 
         <div className="home-features__grid">
@@ -285,11 +285,11 @@ export default function HomePage() {
 
       <section className="home-cta">
         <h2 className="home-cta__title">
-          
+          Ready to get started?
         </h2>
 
         <p className="home-cta__desc">
-          
+          Join ILES today and take control of your internship experience.
         </p>
 
         <div className="home-cta__buttons">
@@ -297,7 +297,7 @@ export default function HomePage() {
             to="/register"
             className="home-cta__btn home-cta__btn--white"
           >
-          
+            Register now
             <ArrowRight size={15} />
           </Link>
 
@@ -317,26 +317,25 @@ export default function HomePage() {
           </div>
 
           <span className="home-footer__text">
-            
+            ILES · Internship Logging & Evaluation System
           </span>
         </div>
 
         <div className="home-footer__links">
           <Link to="/login" className="home-footer__link">
-            
+            Login
           </Link>
 
           <Link to="/register" className="home-footer__link">
-            
+            Register
           </Link>
 
           <span className="home-footer__built">
             <CheckCircle2 size={12} color="#276749" />
-            
+            Built at Makerere University
           </span>
         </div>
       </footer>
     </div>
   );
 }
-```
