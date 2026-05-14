@@ -20,3 +20,12 @@ const STEPS = [
   { n: 2, label: "Basic information" },
   { n: 3, label: "Academic details" },
 ];
+
+function validatePassword(pwd) {
+  if (pwd.length < 8 || pwd.length > 16) return "Password must be 8–16 characters.";
+  if (!/[A-Z]/.test(pwd)) return "Password needs at least one uppercase letter.";
+  if (!/[a-z]/.test(pwd)) return "Password needs at least one lowercase letter.";
+  if (!/[0-9]/.test(pwd))  return "Password needs at least one number.";
+  if (!/[!@#$%^&*]/.test(pwd)) return "Password needs at least one special character (!@#$%^&*).";
+  return null;
+}
