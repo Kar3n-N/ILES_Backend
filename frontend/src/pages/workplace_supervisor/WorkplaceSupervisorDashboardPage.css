@@ -1,10 +1,4 @@
 .page {
-  --color-primary:       #276749;
-  --color-primary-light: #2f855a;
-  --primary-soft:        #e6f5ec;
-}
-
-.page {
   padding: 28px 32px 60px;
   display: flex;
   flex-direction: column;
