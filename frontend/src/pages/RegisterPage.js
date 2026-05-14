@@ -214,6 +214,26 @@ export default function RegisterPage() {
                     <input type={showPass ? "text" : "password"} className="reg-input reg-input--icon reg-input--pr" value={form.password} onChange={(e) => update("password", e.target.value)} placeholder="••••••••" required />
                     <button type="button" className="reg-eye" onClick={() => setShowPass((v) => !v)}>
                       {showPass ? <EyeOff size={14} /> : <Eye size={14} />}
+                    </button>
+                  </div>
+                </div>
+                <div className="reg-group">
+                  <label className="reg-label">Confirm Password</label>
+                  <div className="reg-input-wrap">
+                    <Lock size={14} className="reg-input-icon" />
+                    <input type={showPass ? "text" : "password"} className="reg-input reg-input--icon" value={form.confirmPassword} onChange={(e) => update("confirmPassword", e.target.value)} placeholder="••••••••" required />
+                  </div>
+                </div>
+              </div>
+              <p className="reg-hint">8–16 chars · Uppercase · Lowercase · Number · Special char (!@#$%^&*)</p>
+              <div className="reg-actions">
+                <button type="button" className="reg-btn reg-btn--outline" onClick={() => setStep(1)}>Back</button>
+                <button type="submit" className="reg-btn reg-btn--primary">Continue <ChevronRight size={15} /></button>
+              </div>
+            </form>
+          )}
+
+
               
 
             
