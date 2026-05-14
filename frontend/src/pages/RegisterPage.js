@@ -111,3 +111,14 @@ export default function RegisterPage() {
                     color: step === s.n ? "#1a365d" : "#fff",
                   }}
                 >
+                    {step > s.n ? <CheckCircle2 size={14} /> : s.n}
+                </div>
+                <span className="reg-panel__step-label" style={{ opacity: step >= s.n ? 1 : 0.4 }}>
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="reg-panel__footer">Makerere University · CS · 2025–2026</p>
+      </div>
