@@ -122,6 +122,46 @@ Affected lines: 151, 159, 176, 180–184, 188, 229–231, 260–262, 287–293, 
 
 ---
 
+## Vercel Build Failures (discovered 2026-05-14)
+
+The following errors were not caught locally but surfaced in Vercel preview deployments triggered by the PRs.
+
+### Error 8 — `EvaluationPage` has no export default (Vercel build crash)
+
+| Field | Detail |
+|---|---|
+| File | `frontend/src/pages/EvaluationPage.js` |
+| PR | #60 ILES-39 (feature/ILES-39-homepage) |
+| Vercel deployment | `dpl_CtLzKC6QhMiNR4eZD9TRdH5HxEAf` |
+| Error commit | `b42d399` |
+| Fix commit | `2421f2f` |
+| Vercel error | `Attempted import error: './pages/EvaluationPage' does not contain a default export (imported as 'EvaluationPage').` |
+| Symptom | Vercel build failed — the entire app could not compile on CI even though it may have passed locally if the import was not exercised |
+| Cause | `EvaluationPage.js` on this branch was an incomplete work-in-progress fragment: it contained only a local `Crit` helper component with no imports, no `EvaluationPage` function, and no `export default`. `App.js` on this branch imports and routes to it, so the build failed at compile time |
+| Fix | Replaced file content with a minimal valid stub: `function EvaluationPage()` + `export default EvaluationPage` |
+
+**To reproduce:** `git checkout b42d399` and run `npm run build` — compile error on import.
+
+---
+
+### Error 9 — Wrong import path depth for `Primitives` and `Icons` (Vercel build crash)
+
+| Field | Detail |
+|---|---|
+| File | `frontend/src/pages/student/PlacementOnBoardingPage.js` |
+| PR | #58 ILES-51 (feat/ILES-51-onboarding-page-redesign) |
+| Vercel deployment | `dpl_955w5EbZF4DYkmiJ7yJLuQZVbKbc` |
+| Error commit | `a27f126` |
+| Fix commit | _(pushed with path fix — see branch)_ |
+| Vercel error | `Module not found: Error: Can't resolve '../components/common/Primitives'` |
+| Symptom | Vercel build failed — page could not compile at all |
+| Cause | Import paths used `../components/common/Primitives` and `../components/common/Icons` but the file lives at `pages/student/PlacementOnBoardingPage.js` — one directory deeper than `pages/`. The correct relative path requires two levels up: `../../components/...`. This error was masked locally if the dev was running from a different working directory or an IDE with path resolution |
+| Fix | Changed both import paths from `../components/...` to `../../components/...` |
+
+**To reproduce:** `git checkout a27f126` and run `npm run build` — module not found error on Primitives.
+
+---
+
 ## PRs with No Errors
 
 | PR | Ticket | Branch | Status |
@@ -143,3 +183,5 @@ Affected lines: 151, 159, 176, 180–184, 188, 229–231, 260–262, 287–293, 
 | 5 | #60 ILES-39 | HomePage.js | Markdown code fence in JS file | Critical — build crash | ✅ `b42d399` |
 | 6 | #60 ILES-39 | HomePage.js | Empty text content (×11 elements) | High — blank UI | ✅ `b42d399` |
 | 7 | #58 ILES-51 | PlacementOnBoardingPage.js | Non-existent `PageShell` import | Critical — runtime crash | ✅ `a27f126` |
+| 8 | #60 ILES-39 | EvaluationPage.js | No `export default` — Vercel build crash | Critical — CI failure | ✅ `2421f2f` |
+| 9 | #58 ILES-51 | PlacementOnBoardingPage.js | Wrong import path depth (`../` vs `../../`) | Critical — CI failure | ✅ _(branch pushed)_ |

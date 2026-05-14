@@ -1,6 +1,6 @@
 import React from 'react';
-import { PageHead, Card, Btn, Field, Lines } from '../components/common/Primitives';
-import { I } from '../components/common/Icons';
+import { PageHead, Card, Btn, Field, Lines } from '../../components/common/Primitives';
+import { I } from '../../components/common/Icons';
 
 export default function OnboardingPage() {
   return (
