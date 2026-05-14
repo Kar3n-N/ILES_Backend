@@ -3,6 +3,13 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import "./Navbar.css";
 
+const PROFILE_PATHS = {
+  student: "/student/profile",
+  workplace_supervisor: "/supervisor/profile",
+  academic_supervisor: "/academic/profile",
+  internship_admin: "/admin/profile",
+};
+
 // TODO: ILES-21: Add ROLE_NAV_LINK and ROLE_CONFIG constanst here
 const ROLE_NAV_LINKS = {
   student: [
@@ -65,6 +72,7 @@ function Navbar() {
     ? (ROLE_CONFIG[user.role] ?? ROLE_CONFIG.student)
     : null;
   const navLinks = user ? (ROLE_NAV_LINKS[user.role] ?? []) : [];
+  const profilePath = user ? (PROFILE_PATHS[user.role] ?? "/student/profile") : "/login";
 
   /* Live clock — updates every 60 seconds */
   useEffect(() => {
@@ -272,7 +280,7 @@ function Navbar() {
                 {/* Links section */}
                 <div className="iles-navbar__dropdown-section">
                   <Link
-                    to="/profile"
+                    to={profilePath}
                     className="iles-navbar__dropdown-item"
                     role="menuitem"
                     onClick={() => setMenuOpen(false)}

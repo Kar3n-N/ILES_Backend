@@ -19,14 +19,17 @@ import EvaluationsPage from "../pages/student/EvaluationsPage";
 // WorkplaceSupervisor imports
 import WorkplaceSupervisorDashboardPage from "../pages/workplace_supervisor/WorkplaceSupervisorDashboardPage";
 import WorkplaceEvaluationPage from "../pages/workplace_supervisor/WorkplaceEvaluationPage";
+import WorkplaceSupervisorProfilePage from "../pages/workplace_supervisor/ProfilePage";
 
 // Academic Supervisor imports
 import AcademicSupervisorDashboardPage from "../pages/academic_supervisor/AcademicSupervisorDashboardPage";
 import AcademicEvaluationPage from "../pages/academic_supervisor/AcademicEvaluationPage";
+import AcademicSupervisorProfilePage from "../pages/academic_supervisor/ProfilePage";
 
 //Admin imports
 import AdminDashboardPage from "../pages/admin/AdminDashboardPage";
 import AdminPlacementsPage from "../pages/admin/AdminPlacementsPage";
+import AdminProfilePage from "../pages/admin/ProfilePage";
 
 //Not Page Found
 import NotPageFound from "../pages/NotPageFound";
@@ -67,6 +70,7 @@ function AppRoutes() {
               path="/supervisor/evaluation"
               element={<WorkplaceEvaluationPage />}
             />
+            <Route path="/supervisor/profile" element={<WorkplaceSupervisorProfilePage />} />
           </Route>
         </Route>
         {/* Academic Supervisor */}
@@ -82,6 +86,7 @@ function AppRoutes() {
               path="/academic/evaluation"
               element={<AcademicEvaluationPage />}
             />
+            <Route path="/academic/profile" element={<AcademicSupervisorProfilePage />} />
           </Route>
         </Route>
         {/* Admin Routes*/}
@@ -89,6 +94,7 @@ function AppRoutes() {
           <Route element={<Layout />}>
             <Route path="/admin" element={<AdminDashboardPage />} />
             <Route path="/admin/placements" element={<AdminPlacementsPage />} />
+            <Route path="/admin/profile" element={<AdminProfilePage />} />
           </Route>
         </Route>
         <Route path="*" element={<NotPageFound />} />
