@@ -122,3 +122,21 @@ export default function RegisterPage() {
         </div>
         <p className="reg-panel__footer">Makerere University · CS · 2025–2026</p>
       </div>
+
+      <div className="reg-form-area">
+        <div className="reg-form-wrap">
+          <div className="reg-form-topbar">
+            <Link to="/login" className="reg-back">
+              <ArrowLeft size={14} /> Already have an account? Sign in
+            </Link>
+            <button onClick={toggleDark} className="reg-theme-btn" aria-label="Toggle dark mode">
+              {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+          </div>
+
+          {error && (
+            <div className="reg-error">
+              <AlertCircle size={14} />
+              <span>{error}</span>
+            </div>
+          )}
