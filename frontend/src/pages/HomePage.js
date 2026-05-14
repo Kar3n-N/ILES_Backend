@@ -170,6 +170,11 @@ export default function HomePage() {
       </nav>
 
       <section className="home-hero">
+        <div className="home-hero__bg-circles" aria-hidden="true">
+          <div className="home-hero__circle" style={{ width: 400, height: 400, top: -100, right: -100 }} />
+          <div className="home-hero__circle" style={{ width: 250, height: 250, bottom: -60, left: -60 }} />
+          <div className="home-hero__circle" style={{ width: 150, height: 150, top: 40, left: "30%" }} />
+        </div>
         <div className="home-hero__content">
           <span className="home-hero__badge">
             Makerere University · Internship Platform
