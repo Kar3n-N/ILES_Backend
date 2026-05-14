@@ -1,7 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { ThemeContext } from "../../context/ThemeContext";
 import "./Navbar.css";
+
+const PROFILE_PATHS = {
+  student: "/student/profile",
+  workplace_supervisor: "/supervisor/profile",
+  academic_supervisor: "/academic/profile",
+  internship_admin: "/admin/profile",
+};
 
 // TODO: ILES-21: Add ROLE_NAV_LINK and ROLE_CONFIG constanst here
 const ROLE_NAV_LINKS = {
@@ -9,6 +17,7 @@ const ROLE_NAV_LINKS = {
     { path: "/student/dashboard", label: "Overview", icon: "⌂" },
     { path: "/student/logbook", label: "My Logbook", icon: "✎" },
     { path: "/student/progress", label: "Progress", icon: "↗" },
+    { path: "/student/evaluations", label: "Evaluations", icon: "★" },
   ],
   workplace_supervisor: [
     { path: "/supervisor/dashboard", label: "Dashboard", icon: "⌂" },
@@ -60,10 +69,12 @@ function Navbar() {
   const [time, setTime] = useState(new Date());
   const menuRef = useRef(null);
 
+  const { isDark, toggleTheme } = useContext(ThemeContext);
   const roleConfig = user
     ? (ROLE_CONFIG[user.role] ?? ROLE_CONFIG.student)
     : null;
   const navLinks = user ? (ROLE_NAV_LINKS[user.role] ?? []) : [];
+  const profilePath = user ? (PROFILE_PATHS[user.role] ?? "/student/profile") : "/login";
 
   /* Live clock — updates every 60 seconds */
   useEffect(() => {
@@ -171,6 +182,28 @@ function Navbar() {
       {/* RIGHT: User controls — only render if logged in */}
       {user && (
         <div className="iles-navbar__controls">
+          {/* Dark mode toggle */}
+          <button
+            className="iles-navbar__icon-btn"
+            onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            type="button"
+          >
+            {isDark ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
+          </button>
+
           {/* Role badge — colour comes from CSS custom property */}
           <span
             className="iles-navbar__role-badge"
@@ -271,7 +304,7 @@ function Navbar() {
                 {/* Links section */}
                 <div className="iles-navbar__dropdown-section">
                   <Link
-                    to="/profile"
+                    to={profilePath}
                     className="iles-navbar__dropdown-item"
                     role="menuitem"
                     onClick={() => setMenuOpen(false)}

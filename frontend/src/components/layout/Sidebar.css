@@ -12,7 +12,7 @@
     --sidebar-font: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
-.dark .iles-sidebar {
+[data-theme="dark"] .iles-sidebar {
     --sidebar-bg: #0f172a;
     --sidebar-border: rgba(255, 255, 255, 0.06);
     --sidebar-text-primary: #f1f5f9;

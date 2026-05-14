@@ -6,7 +6,7 @@
     --color-purple: #6b46c1;
 
     --color-surface: #ffffff;
-    --color-backgrund: #f7fafc;
+    --color-background: #f7fafc;
     --color-sidebar-bg: #ffffff;
     --color-input-bg: #f7fafc;
 
@@ -54,6 +54,12 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+    --primary-soft: rgba(99, 179, 237, 0.15);
+    --green-soft: rgba(56, 161, 105, 0.15);
+    --orange-soft: rgba(192, 86, 33, 0.15);
+    --red-soft: rgba(197, 48, 48, 0.15);
+    --purple-soft: rgba(107, 70, 193, 0.15);
 }
 *,
 *::before,

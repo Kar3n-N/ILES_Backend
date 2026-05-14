@@ -30,6 +30,12 @@ const NAV_CONFIG = {
             icon: <ProgressIcon />,
             description: "Hours & completion rate",
           },
+          {
+            path: "/student/evaluations",
+            label: "Evaluations",
+            icon: <StarIcon />,
+            description: "Scores from supervisors",
+          },
         ],
       },
       {
@@ -121,6 +127,12 @@ const NAV_CONFIG = {
             icon: <UsersIcon />,
             description: "Assigned students",
           },
+          {
+            path: "/academic/profile",
+            label: "My Profile",
+            icon: <ProfileIcon />,
+            description: "Your information",
+          },
         ],
       },
     ],
@@ -157,6 +169,12 @@ const NAV_CONFIG = {
             label: "Criteria",
             icon: <ClipboardIcon />,
             description: "Evaluation criteria",
+          },
+          {
+            path: "/admin/profile",
+            label: "My Profile",
+            icon: <ProfileIcon />,
+            description: "Your information",
           },
         ],
       },
@@ -325,7 +343,7 @@ function Sidebar() {
             </span>
             <span
               className="iles-sidebar__progress-pct"
-              style={{ color: accentColor }}
+              style={{ color: "var(--color-red, #c53030)" }}
             >
               {progressPercent}%
             </span>
@@ -336,7 +354,7 @@ function Sidebar() {
           >
             <div
               className="iles-sidebar__progress-fill"
-              style={{ width: `${progressPercent}%`, background: accentColor }}
+              style={{ width: `${progressPercent}%`, background: "var(--color-red, #c53030)" }}
             />
           </div>
           <p className="iles-sidebar__progress-sub">Week 12 of 15</p>

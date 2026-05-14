@@ -43,7 +43,7 @@
   padding: 8px 0;
   font-size: 13px;
   cursor: pointer;
-  border-bottom: 1px solid var(--color-border-light, #f3f4f6);
+  border-bottom: 1px solid var(--color-border);
 }
 .todo-item:last-child {
   border-bottom: none;

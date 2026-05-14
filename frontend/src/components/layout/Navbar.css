@@ -12,7 +12,7 @@
     --navbar-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --navbar-font: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
-.dark .iles-navbar {
+[data-theme="dark"] .iles-navbar {
     --navbar-bg: #0f172a;
     --navbar-bg-scrolled: rgba(15, 23, 42, 0.97);
     --navbar-border: rgba(255, 255, 255, 0.06);
@@ -197,15 +197,15 @@
     }
 }
 
-.dark .iles-navbar__link:hover {
+[data-theme="dark"] .iles-navbar__link:hover {
     background: rgba(148, 163, 184, 0.08);
     color: #e2e8f0;
 }
-.dark .iles-navbar__link--active {
+[data-theme="dark"] .iles-navbar__link--active {
     background: rgba(148, 163, 184, 0.1);
     color: #e2e8f0;
 }
-.dark .iles-navbar__link-pip {
+[data-theme="dark"] .iles-navbar__link-pip {
     background: #60a5fa;
 }
 
@@ -291,8 +291,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.dark .iles-navbar__avatar-btn:hover,
-.dark .iles-navbar__avatar-btn--open {
+[data-theme="dark"] .iles-navbar__avatar-btn:hover,
+[data-theme="dark"] .iles-navbar__avatar-btn--open {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.1);
 }
@@ -370,7 +370,7 @@
     }
 }
 
-.dark .iles-navbar__dropdown {
+[data-theme="dark"] .iles-navbar__dropdown {
     background: #1e293b;
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -448,7 +448,7 @@
     background: rgba(0, 0, 0, 0.05);
     color: var(--navbar-text-primary);
 }
-.dark .iles-navbar__dropdown-item:hover {
+[data-theme="dark"] .iles-navbar__dropdown-item:hover {
     background: rgba(255, 255, 255, 0.06);
     color: #e2e8f0;
 }

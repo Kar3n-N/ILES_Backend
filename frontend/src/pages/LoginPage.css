@@ -184,7 +184,7 @@
 }
 
 .login-page__register-link {
-  color: #1a365d;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -198,10 +198,10 @@
   gap: 10px;
   padding: 12px 16px;
   border-radius: var(--radius-sm);
-  background: #fff5f5;
-  border: 1px solid #fed7d7;
+  background: var(--red-soft);
+  border: 1px solid var(--color-border);
   font-size: 0.875rem;
-  color: #c53030;
+  color: var(--color-red, #c53030);
   margin-bottom: 20px;
 }
 
@@ -256,7 +256,7 @@
 }
 
 .login-page__demo-btn:hover {
-  border-color: #b0bec5;
+  border-color: var(--color-border-strong);
   background: var(--color-background);
 }
 

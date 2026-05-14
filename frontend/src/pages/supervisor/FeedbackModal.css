@@ -1,0 +1,67 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    z-index: 50;
+    padding: 1rem;
+}
+
+.modal-box {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 480px;
+    overflow: hidden;
+    animation:modal-in 0.2s ease;
+}
+
+@keyframes modal-in {
+    from { opacity: 0; transform: scale(0.95) translateY(-8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+
+.modal-header {
+    padding: 1.25rem 1.5rem 1rem;
+    position: relative;
+}
+.modal-header h3 { font-size: 1rem; font-weight: 700; color: var(--color-text); }
+.modal-header p  { font-size:0.82rem; color: var(--color-text-muted); margin-top: 0.2rem; }
+
+
+.modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; cursor: pointer;
+    color: var(--color-text-muted); font-size: 1rem;
+    width: 2rem; height: 2rem; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s ease;
+}
+.modal-close:hover {background: var(--color-border); }
+
+
+.modal-body {
+    padding: 0 1.5rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+}
+.modal-body label { font-size: 0.85rem; font-weight: 600; color: var(--color-text); }
+.modal-body textarea {
+    width: 100%; padding: 0.75rem; border-radius: var(--radius-md);
+    border: 1px solid var(--color-border); background: var(--color-input-bg);
+    color: var(--color-text); font-size: 0.9rem; resize: none;
+    transition: border 0.15s ease;
+}
+.modal-body textarea:focus {outline: none; border-color: var(--color-primary); }
+.modal-hint { font-size: 0.72rem; color: var(--color-text-muted); margin-top: -0.5rem; }
+
+
+.modal-actions{ display: flex; gap: 0.75rem; justify-content: flex-end; }
+.btn-primary {
+    padding: 0.625rem 1.25rem; border: none; border-radius: var(--radius-md);
+    color: white; font-size: 0.875rem; font-weight: 600; cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
