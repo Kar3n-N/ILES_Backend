@@ -243,6 +243,14 @@ export default function RegisterPage() {
                   <input className="reg-input reg-input--icon" value={form.university} onChange={(e) => update("university", e.target.value)} placeholder="Makerere University" />
                 </div>
               </div>
+              <div className="reg-row">
+                <div className="reg-group">
+                  <label className="reg-label">Course / Program</label>
+                  <div className="reg-input-wrap">
+                    <BookOpen size={14} className="reg-input-icon" />
+                    <input className="reg-input reg-input--icon" value={form.course} onChange={(e) => update("course", e.target.value)} placeholder="BS Computer Science" />
+                  </div>
+                </div>
 
 
               
