@@ -66,3 +66,21 @@ export default function RegisterPage() {
     await new Promise((r) => setTimeout(r, 1200));
     setLoading(false); setDone(true);
   }
+
+  if (done) {
+    return (
+      <div className="reg-done" data-theme={isDark ? "dark" : "light"}>
+        <div className="reg-done__card">
+          <div className="reg-done__icon">
+            <CheckCircle2 size={32} color="#276749" />
+          </div>
+          <h2 className="reg-done__title">Account Created!</h2>
+          <p className="reg-done__sub">
+            Your account as <strong>{selectedRole?.label}</strong> has been created.
+            You can now sign in to access your dashboard.
+          </p>
+          <Link to="/login" className="reg-done__btn">Sign In Now</Link>
+        </div>
+      </div>
+    );
+  }
