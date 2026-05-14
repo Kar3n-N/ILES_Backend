@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ThemeContext } from "../context/ThemeContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 import {
   GraduationCap,
