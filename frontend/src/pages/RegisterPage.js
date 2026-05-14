@@ -39,3 +39,10 @@ export default function RegisterPage() {
     password: "", confirmPassword: "", phone: "",
     university: "Makerere University", course: "", department: "",
   });
+  const [showPass, setShowPass] = useState(false);
+  const [error, setError]       = useState("");
+  const [loading, setLoading]   = useState(false);
+  const [done, setDone]         = useState(false);
+
+  const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
+  const selectedRole = ROLES.find((r) => r.value === role);
