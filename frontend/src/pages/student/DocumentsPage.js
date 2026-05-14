@@ -123,6 +123,50 @@ function DocumentsPage() {
           <Btn sm kind="primary">{I.upload} Upload now</Btn>
         </div>
       </Card>
+
+      <Card label="All documents" padless>
+        <div
+          style={{
+            padding: "12px 16px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderBottom: "1px solid var(--color-border)",
+          }}
+        >
+          <div style={{ width: 320 }}>
+            <Field>
+              <span
+                className="muted"
+                style={{ display: "flex", alignItems: "center", gap: 8 }}
+              >
+                {I.search} Search documents…
+              </span>
+            </Field>
+          </div>
+          <div className="row" style={{ gap: 8 }}>
+            <Chip>Sort: newest ▾</Chip>
+            <Chip>View: list ▾</Chip>
+          </div>
+        </div>
+        <table className="tbl">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Uploaded</th>
+              <th>Shared with</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {DOCS.map((doc) => (
+              <DocRow key={doc.name} {...doc} />
+            ))}
+          </tbody>
+        </table>
+      </Card>
     </div>
   );
 }
