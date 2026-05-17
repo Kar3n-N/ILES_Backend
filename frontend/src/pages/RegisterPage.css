@@ -46,3 +46,11 @@
   font-size: 0.875rem; color: var(--color-text-muted);
   text-decoration: none; transition: color 0.15s;
 }
+.reg-back:hover { color: var(--color-text); }
+.reg-theme-btn {
+  padding: 8px; border-radius: var(--radius-sm);
+  border: none; background: transparent;
+  color: var(--color-text-muted); cursor: pointer;
+  display: flex; align-items: center; transition: all 0.15s;
+}
+.reg-theme-btn:hover { background: var(--color-border); color: var(--color-text); }
