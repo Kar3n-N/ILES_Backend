@@ -38,7 +38,6 @@
   padding: 40px 24px; overflow-y: auto;
 }
 .reg-form-wrap { width: 100%; max-width: 480px; }
-
 .reg-form-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
 .reg-back {
   display: flex; align-items: center; gap: 6px;
