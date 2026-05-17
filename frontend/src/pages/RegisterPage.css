@@ -125,3 +125,18 @@
 }
 .reg-role-confirm__label { font-size: 0.8rem; font-weight: 600; color: var(--color-text); }
 .reg-role-confirm__desc { font-size: 0.72rem; color: var(--color-text-muted); }
+
+.reg-done {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--color-background); padding: 32px;
+}
+.reg-done__card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 16px; padding: 40px; max-width: 400px; width: 100%; text-align: center;
+}
+.reg-done__icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #f0fff4;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
