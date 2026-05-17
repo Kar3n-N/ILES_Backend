@@ -20,4 +20,9 @@ export default function OnboardingPage() {
           </div>
         </div>
       </Card>
+      <div className="grid grid--2">
+        <Card label="Company / Organization">
+          <Field label="Company name" placeholder="e.g. Acme Telecoms Ltd." />
+        </Card>
+
 
