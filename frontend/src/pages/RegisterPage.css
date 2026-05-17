@@ -1,0 +1,14 @@
+.reg-page {
+  display: flex; min-height: 100vh;
+  background: var(--color-background);
+}
+.reg-page[data-theme="dark"] { background: #0f172a; }
+
+/* Left panel */
+.reg-panel {
+  width: 384px; flex-shrink: 0;
+  background: #1a365d;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 40px;
+}
+@media (max-width: 1023px) { .reg-panel { display: none; } }
