@@ -117,3 +117,11 @@
 .reg-btn--primary:disabled { opacity: 0.6; cursor: not-allowed; }
 .reg-btn--outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
 .reg-btn--outline:hover { background: var(--color-border); }
+
+.reg-role-confirm {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 10px;
+  border: 1px solid; margin-bottom: 16px;
+}
+.reg-role-confirm__label { font-size: 0.8rem; font-weight: 600; color: var(--color-text); }
+.reg-role-confirm__desc { font-size: 0.72rem; color: var(--color-text-muted); }
