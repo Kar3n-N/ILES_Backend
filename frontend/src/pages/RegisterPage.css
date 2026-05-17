@@ -84,3 +84,17 @@
 .reg-role__label { font-size: 0.82rem; font-weight: 600; color: var(--color-text); margin-bottom: 4px; }
 .reg-role__desc { font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.5; }
 .reg-role__check { display: flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 600; margin-top: 8px; }
+
+.reg-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 480px) { .reg-row { grid-template-columns: 1fr; } }
+.reg-label { font-size: 0.8rem; font-weight: 500; color: var(--color-text); }
+.reg-input-wrap { position: relative; }
+.reg-input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); pointer-events: none; }
+.reg-input {
+  width: 100%; padding: 10px 14px;
+  border-radius: 10px; border: 1px solid var(--color-border);
+  background: var(--color-surface); color: var(--color-text);
+  font-size: 0.875rem; outline: none;
+  transition: border-color 0.15s; box-sizing: border-box;
+}
