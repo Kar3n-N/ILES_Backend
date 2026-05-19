@@ -16,3 +16,6 @@ const CRITERIA = [
     { key: "professionalism",label: "Professionalism",  max: 15 },
 ];
 
+export default function WorkplaceEvaluationPage() {
+    const []
+}
