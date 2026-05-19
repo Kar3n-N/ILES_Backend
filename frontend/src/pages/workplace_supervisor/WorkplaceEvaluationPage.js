@@ -25,5 +25,8 @@ export default function WorkplaceEvaluationPage() {
         return sum + (isNaN(v) ? 0 : Math.min(v, c.max));
     }, 0);
 
-    
+     function setScore(key, val) { setScores((s) => ({ ...s, [key]: val })); }
+
+    function handleSubmit(e) { e.preventDefault(); /* TODO: wire to API */ } 
+    }
 }
